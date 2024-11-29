@@ -12,6 +12,7 @@ const (
 	PlatformQEMU        = Platform("qemu")
 	PlatformKVM         = PlatformQEMU
 	PlatformXen         = Platform("xen")
+	PlatformLinuxu      = Platform("linuxu")
 )
 
 // String implements fmt.Stringer
@@ -37,6 +38,7 @@ func PlatformsByName() map[string]Platform {
 		"kvm":         PlatformQEMU,
 		"qemu":        PlatformQEMU,
 		"xen":         PlatformXen,
+		"linuxu":      PlatformLinuxu,
 	}
 }
 
@@ -46,6 +48,7 @@ func Platforms() []Platform {
 		PlatformFirecracker,
 		PlatformQEMU,
 		PlatformXen,
+		PlatformLinuxu,
 	}
 }
 

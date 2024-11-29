@@ -82,8 +82,8 @@ Q           ?= @
 
 UNAME_OS    ?= $(shell uname -s)
 UNAME_ARCH  ?= $(shell uname -m)
-GOOS        ?= linux
-GOARCH      ?= amd64
+GOOS        ?= $(shell go env GOOS)
+GOARCH      ?= $(shell go env GOARCH)
 
 # Don't try to pass the path to Darwin host's make into the container
 ifeq ($(UNAME_OS),Darwin)

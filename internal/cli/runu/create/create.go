@@ -278,6 +278,8 @@ func genMachineArgs(ctx context.Context, cID, rootDir, bundleRoot string) (args 
 		bin = qemu.QemuSystemArm
 	case "arm64":
 		bin = qemu.QemuSystemAarch64
+	case "riscv64":
+		bin = qemu.QemuSystemRiscv64
 	default:
 		return nil, fmt.Errorf("unsupported machine architecture: %s", mArch)
 	}
@@ -433,6 +435,8 @@ func kernelArchitecture(path string) (string, error) {
 		arch = "arm"
 	case elf.EM_AARCH64:
 		arch = "arm64"
+	case elf.EM_RISCV:
+		arch = "riscv64"
 	default:
 		return "", fmt.Errorf("unsupported kernel architecture: %s", f.Machine)
 	}

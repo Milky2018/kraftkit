@@ -33,7 +33,7 @@ var ErrContextNotBuildable = fmt.Errorf("could not determine what or how to buil
 
 type BuildOptions struct {
 	All          bool            `long:"all" usage:"Build all targets"`
-	Architecture string          `long:"arch" short:"m" usage:"Filter the creation of the build by architecture of known targets (x86_64/arm64/arm)"`
+	Architecture string          `long:"arch" short:"m" usage:"Filter the creation of the build by architecture of known targets (x86_64/arm64/arm/riscv64)"`
 	DotConfig    string          `long:"config" short:"c" usage:"Override the path to the KConfig .config file"`
 	Env          []string        `long:"env" short:"e" usage:"Set environment variables to be built in the unikernel"`
 	ForcePull    bool            `long:"force-pull" usage:"Force pulling packages before building"`
@@ -46,7 +46,7 @@ type BuildOptions struct {
 	NoFetch      bool            `long:"no-fetch" usage:"Do not run Unikraft's fetch step before building"`
 	NoRootfs     bool            `long:"no-rootfs" usage:"Do not build the root file system (initramfs)"`
 	NoUpdate     bool            `long:"no-update" usage:"Do not update package index before running the build"`
-	Platform     string          `long:"plat" short:"p" usage:"Filter the creation of the build by platform of known targets (fc/qemu/xen)"`
+	Platform     string          `long:"plat" short:"p" usage:"Filter the creation of the build by platform of known targets (fc/qemu/xen/linuxu)"`
 	PrintStats   bool            `long:"print-stats" usage:"Print build statistics"`
 	Project      app.Application `noattribute:"true"`
 	Rootfs       string          `long:"rootfs" usage:"Specify a path to use as root file system (can be volume or initramfs)"`
